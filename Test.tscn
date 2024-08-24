@@ -1,0 +1,232 @@
+[gd_scene load_steps=23 format=2]
+
+[ext_resource path="res://weapons/rifle.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://spawn_point.gd" type="Script" id=3]
+[ext_resource path="res://Enemies/zombies/base_zombie/base_zombie.tscn" type="PackedScene" id=4]
+
+[sub_resource type="CubeMesh" id=9]
+
+[sub_resource type="ConvexPolygonShape" id=10]
+points = PoolVector3Array( 1, 1, 1, 1, 1, -1, -1, 1, 1, 1, -1, 1, 1, -1, -1, -1, 1, -1, -1, -1, 1, -1, -1, -1 )
+
+[sub_resource type="NavigationMesh" id=11]
+vertices = PoolVector3Array( -14.1277, 0.661, -9.789, -5.6277, 0.661, -18.039, -6.3777, 0.661, -19.039, -14.1277, 0.661, -9.789, -6.3777, 0.661, -19.039, -6.3777, 0.661, -20.039, -50.3777, 0.661, -29.789, -50.3777, 0.661, -22.789, -38.8777, 0.661, -65.039, -50.3777, 0.661, -65.039, -50.3777, 0.661, -58.039, -38.8777, 0.661, -65.039, -50.3777, 0.661, -58.039, -50.3777, 0.661, -51.039, -38.8777, 0.661, -65.039, -50.3777, 0.661, -51.039, -50.3777, 0.661, -44.039, -38.8777, 0.661, -65.039, -50.3777, 0.661, -44.039, -50.3777, 0.661, -36.789, -27.3777, 0.661, -65.039, -50.3777, 0.661, -8.539, -14.1277, 0.661, -9.039, -14.1277, 0.661, -9.789, -50.3777, 0.661, -15.789, -27.3777, 0.661, -65.039, -50.3777, 0.661, -36.789, -50.3777, 0.661, -29.789, -6.3777, 0.661, -20.039, -4.3777, 0.661, -21.539, -15.8777, 0.661, -65.039, -4.3777, 0.661, -21.539, -4.3777, 0.661, -65.039, -15.8777, 0.661, -65.039, -50.3777, 0.661, -22.789, -50.3777, 0.661, -15.789, -14.1277, 0.661, -9.789, 17.1223, 0.661, -1.289, 23.6223, 0.661, 5.211, 24.1223, 0.661, 5.211, 50.3723, 0.661, -55.789, 50.3723, 0.661, -65.039, 43.3723, 0.661, -65.039, 50.3723, 0.661, -55.789, 43.3723, 0.661, -65.039, 36.6223, 0.661, -65.039, -2.6277, 0.661, -20.539, 3.8723, 0.661, -14.039, 10.6223, 0.661, -7.789, 10.6223, 0.661, -7.789, 17.1223, 0.661, -1.289, 24.1223, 0.661, 5.211, 50.3723, 0.661, -18.789, 50.3723, 0.661, -28.039, 50.3723, 0.661, -55.789, 36.6223, 0.661, -65.039, 29.6223, 0.661, -65.039, 27.6223, 0.661, 8.711, 27.6223, 0.661, 9.211, 50.3723, 0.661, 9.211, 50.3723, 0.661, -0.289001, 2.3723, 0.661, -65.039, -4.3777, 0.661, -65.039, -4.3777, 0.661, -21.539, 24.1223, 0.661, 5.211, 27.6223, 0.661, 8.711, 50.3723, 0.661, -0.289001, 50.3723, 0.661, -9.539, 50.3723, 0.661, -46.539, 50.3723, 0.661, -55.789, 29.6223, 0.661, -65.039, 22.8723, 0.661, -65.039, 2.3723, 0.661, -65.039, -4.3777, 0.661, -21.539, -2.6277, 0.661, -20.539, 9.1223, 0.661, -65.039, 15.8723, 0.661, -65.039, 9.1223, 0.661, -65.039, -2.6277, 0.661, -20.539, 10.6223, 0.661, -7.789, 50.3723, 0.661, -28.039, 50.3723, 0.661, -37.289, 24.1223, 0.661, 5.211, 50.3723, 0.661, -9.539, 50.3723, 0.661, -18.789, 50.3723, 0.661, -37.289, 50.3723, 0.661, -46.539, 22.8723, 0.661, -65.039, 15.8723, 0.661, -65.039, -4.1277, 2.411, -20.289, -5.1277, 2.411, -19.789, -4.3777, 2.411, -18.789, 9.8723, 2.411, -4.039, 10.8723, 2.411, -4.039, 11.6223, 2.411, -5.039, 9.3723, 2.411, -5.539, 9.3723, 2.411, -4.539, -2.8777, 2.411, -17.289, -4.1277, 2.411, -20.289, -4.3777, 2.411, -18.789, -4.3777, 2.411, -17.789, -3.6277, 2.411, -17.289, 4.8723, 2.411, -0.289001, 0.622299, 2.411, 3.961, 1.1223, 2.411, 4.711, 5.6223, 2.411, 0.460999, 9.8723, 2.411, -4.039, 9.3723, 2.411, -4.539, -4.3777, 2.411, -17.789, -12.8777, 2.411, -9.539, -11.8777, 2.411, -8.789, -3.6277, 2.411, -17.289, 3.8723, 2.411, -12.789, -4.1277, 2.411, -20.289, -2.8777, 2.411, -17.289, 3.1223, 2.411, -11.289, 9.3723, 2.411, -5.539, 11.6223, 2.411, -5.039, 3.3723, 0.661, -11.539, 9.1223, 0.661, -6.039, 9.6223, 0.661, -6.289, 4.1223, 0.661, -12.039, -1.6277, 0.661, -17.539, -2.1277, 0.661, -17.289, -12.3777, 0.661, -9.539, -11.8777, 0.661, -9.289, -4.3777, 0.661, -16.789, -4.6277, 0.661, -17.289, -0.377701, 0.661, -6.539, 1.1223, 0.661, -6.289, 2.1223, 0.661, -10.789, -11.6277, 0.661, -7.539, -13.3777, 0.661, -8.289, -14.6277, 0.661, -3.539, 2.1223, 0.661, -10.789, -2.8777, 0.661, -16.039, -3.3777, 0.661, -16.039, -14.6277, 0.661, -3.539, -9.1277, 0.661, 1.961, -8.6277, 0.661, 1.961, -8.6277, 0.661, 1.961, -0.377701, 0.661, -6.539, 2.1223, 0.661, -10.789, -3.3777, 0.661, -16.039, -11.6277, 0.661, -7.539, -14.6277, 0.661, -3.539, 6.6223, 0.661, -3.539, 8.1223, 0.661, -4.789, 8.1223, 0.661, -5.289, 2.1223, 0.661, -10.789, 1.1223, 0.661, -6.289, 2.1223, 0.661, -5.539, 2.1223, 0.661, -5.539, 2.1223, 0.661, -4.289, 6.6223, 0.661, -3.539, -15.6277, 0.661, -3.539, -14.6277, 0.661, -3.539, -13.3777, 0.661, -8.289, -15.6277, 0.661, -3.539, -13.3777, 0.661, -8.289, -14.1277, 0.661, -9.039, -50.3777, 0.661, -8.539, -50.3777, 0.661, -1.539, -17.1277, 0.661, -1.539, 1.1223, 2.411, -4.789, 0.872299, 2.411, -5.289, 0.122299, 2.411, -5.539, -4.1277, 2.411, -1.039, -3.3777, 2.411, -0.539001, -14.8777, 2.411, -2.539, -15.8777, 2.411, -1.789, -15.8777, 2.411, -1.289, -7.6277, 2.411, 6.461, -9.3777, 2.411, 3.211, -7.6277, 2.411, 6.461, -6.8777, 2.411, 5.461, -7.6277, 2.411, 4.711, -9.3777, 2.411, 3.211, -7.6277, 2.411, 6.461, -7.6277, 2.411, 4.711, -8.3777, 2.411, 3.211, -7.6277, 2.411, 4.711, -7.6277, 2.411, 3.711, -8.3777, 2.411, 3.211, -7.6277, 2.411, 3.711, -3.3777, 2.411, -0.539001, -4.1277, 2.411, -1.039, -8.3777, 2.411, 3.211, -7.6277, 0.661, 2.711, -7.3777, 0.661, 3.211, 0.622299, 0.661, -4.789, 0.122299, 0.661, -5.039, 10.1223, 2.411, 13.211, 10.6223, 2.411, 13.961, 15.1223, 2.411, 9.461, 14.6223, 2.411, 8.961, 20.3723, 2.411, 4.961, 19.1223, 2.411, 2.211, 18.8723, 2.411, 3.461, 18.8723, 2.411, 4.461, 19.6223, 2.411, 4.961, 18.8723, 2.411, 4.461, 14.6223, 2.411, 8.961, 15.1223, 2.411, 9.461, 19.6223, 2.411, 4.961, 10.8723, 2.411, -4.039, 18.8723, 2.411, 3.461, 19.1223, 2.411, 2.211, 11.6223, 2.411, -5.039, 20.3723, 2.411, 4.961, 25.6223, 2.411, 10.211, 26.6223, 2.411, 9.461, 19.1223, 2.411, 2.211, 2.8723, 0.661, 9.461, 2.3723, 0.661, 5.211, 1.8723, 0.661, 5.711, 2.8723, 0.661, 9.461, 1.8723, 0.661, 5.711, 0.622299, 0.661, 5.711, 0.872299, 0.661, 11.461, 2.8723, 0.661, 9.461, 0.622299, 0.661, 5.711, -0.627701, 0.661, 4.711, -6.3777, 0.661, 4.461, -6.3777, 0.661, 3.961, -6.3777, 0.661, 4.461, -0.627701, 0.661, 4.711, -0.627701, 0.661, 3.711, -0.627701, 0.661, 3.711, 6.6223, 0.661, -3.539, 2.1223, 0.661, -4.289, -6.3777, 0.661, 3.961, 12.1223, 0.661, -4.289, 11.6223, 0.661, -4.289, 11.6223, 0.661, -3.789, 17.6223, 0.661, 2.211, 18.6223, 0.661, 2.961, 19.1223, 0.661, 2.711, 17.6223, 0.661, 4.211, 17.6223, 0.661, 3.711, 16.8723, 0.661, 3.461, 12.6223, 0.661, 3.211, 12.6223, 0.661, 4.211, 15.1223, 0.661, 6.461, 12.6223, 0.661, 4.211, 11.1223, 0.661, 5.711, 15.1223, 0.661, 6.461, 11.1223, 0.661, 1.961, 12.6223, 0.661, 3.211, 16.8723, 0.661, 3.461, 10.6223, 0.661, -3.039, 2.3723, 0.661, 5.211, 2.8723, 0.661, 9.461, 10.1223, 0.661, 1.961, 10.6223, 0.661, -3.039, 10.1223, 0.661, 1.961, 11.1223, 0.661, 1.961, 10.6223, 0.661, -3.039, -14.8777, 0.661, -2.039, -15.3777, 0.661, -1.789, -14.3777, 0.661, -0.289001, -9.8777, 0.661, 3.461, -9.8777, 0.661, 2.961, -1.6277, 0.661, 13.961, -7.8777, 0.661, 7.461, -8.3777, 0.661, 7.461, -50.3777, 0.661, 23.211, -50.3777, 0.661, 31.711, -8.3777, 0.661, 7.461, -14.6277, 0.661, 0.960999, -15.1277, 0.661, 0.960999, -50.3777, 0.661, 14.961, -50.3777, 0.661, 23.211, 6.8723, 0.661, 21.711, -1.1277, 0.661, 13.961, -1.6277, 0.661, 13.961, -50.3777, 0.661, 56.461, -50.3777, 0.661, 64.961, -42.3777, 0.661, 64.961, -50.3777, 0.661, 56.461, -42.3777, 0.661, 64.961, -34.1277, 0.661, 64.961, 14.8723, 0.661, 29.461, 6.8723, 0.661, 21.711, -1.6277, 0.661, 13.961, -50.3777, 0.661, 48.211, -50.3777, 0.661, 56.461, -34.1277, 0.661, 64.961, -26.1277, 0.661, 64.961, -9.8777, 0.661, 64.961, -1.6277, 0.661, 64.961, 14.8723, 0.661, 29.461, -17.1277, 0.661, -1.539, -50.3777, 0.661, -1.539, -50.3777, 0.661, 6.711, -50.3777, 0.661, 39.961, -50.3777, 0.661, 48.211, -26.1277, 0.661, 64.961, -17.8777, 0.661, 64.961, -15.1277, 0.661, 0.960999, -17.1277, 0.661, -1.539, -50.3777, 0.661, 6.711, -50.3777, 0.661, 14.961, 6.6223, 0.661, 64.961, 14.8723, 0.661, 64.961, 14.8723, 0.661, 29.461, -50.3777, 0.661, 31.711, -50.3777, 0.661, 39.961, -17.8777, 0.661, 64.961, -9.8777, 0.661, 64.961, 14.8723, 0.661, 29.461, -1.6277, 0.661, 13.961, -1.6277, 0.661, 64.961, 6.6223, 0.661, 64.961, 14.8723, 0.661, 29.461, 10.8723, 2.411, 3.211, 9.8723, 2.411, 3.711, 9.8723, 2.411, 4.211, 11.3723, 2.411, 3.961, 9.1223, 2.411, 22.711, 14.8723, 2.411, 28.211, 15.8723, 2.411, 27.461, 8.8723, 2.411, 20.711, 6.6223, 2.411, 8.711, 11.3723, 2.411, 3.961, 9.8723, 2.411, 4.211, 5.6223, 2.411, 8.461, -2.1277, 2.411, 11.961, 3.6223, 2.411, 17.211, 1.8723, 2.411, 13.961, 0.622299, 2.411, 12.711, -6.8777, 2.411, 5.461, -7.6277, 2.411, 6.461, 1.8723, 2.411, 13.211, 6.6223, 2.411, 8.711, 5.6223, 2.411, 8.461, 1.3723, 2.411, 12.711, 8.8723, 2.411, 20.711, 1.8723, 2.411, 13.961, 3.6223, 2.411, 17.211, 9.1223, 2.411, 22.711, 1.8723, 2.411, 13.961, 1.8723, 2.411, 13.211, 1.3723, 2.411, 12.711, 0.622299, 2.411, 12.711, 10.1223, 0.661, 3.961, 10.1223, 0.661, 4.461, 10.8723, 0.661, 3.961, 16.3723, 0.661, 7.211, 16.6223, 0.661, 7.711, 18.8723, 0.661, 5.461, 18.6223, 0.661, 4.961, 24.3723, 0.661, 8.711, 25.6223, 0.661, 9.711, 26.1223, 0.661, 9.461, 23.3723, 0.661, 6.461, 21.1223, 0.661, 4.961, 21.1223, 0.661, 5.461, -0.877701, 0.661, 12.711, -0.127701, 0.661, 12.961, -0.127701, 0.661, 12.211, -1.8777, 0.661, 10.461, -2.3777, 0.661, 10.461, -7.3777, 0.661, 5.211, -7.8777, 0.661, 5.461, -7.6277, 0.661, 6.211, -7.1277, 0.661, 6.211, -7.1277, 0.661, 6.211, -0.877701, 0.661, 12.711, -2.3777, 0.661, 10.461, -7.3777, 0.661, 5.211, 14.8723, 0.661, 7.211, 15.1223, 0.661, 6.461, 11.1223, 0.661, 5.711, 3.1223, 0.661, 13.461, 8.8723, 0.661, 12.961, 9.3723, 0.661, 19.461, 10.3723, 0.661, 14.961, 8.8723, 0.661, 13.961, 3.1223, 0.661, 13.461, 3.1223, 0.661, 13.461, 8.8723, 0.661, 13.961, 8.8723, 0.661, 12.961, 11.3723, 0.661, 14.961, 10.3723, 0.661, 14.961, 9.3723, 0.661, 19.461, 25.3723, 0.661, 11.461, 19.8723, 0.661, 6.211, 15.6223, 0.661, 10.711, 15.6223, 0.661, 10.711, 11.3723, 0.661, 14.961, 9.3723, 0.661, 19.461, 17.1223, 0.661, 26.961, 25.3723, 0.661, 11.461, 26.1223, 0.661, 11.461, 17.1223, 0.661, 26.961, 17.1223, 0.661, 27.461, 50.3723, 0.661, 27.461, 50.3723, 0.661, 18.211, 27.6223, 0.661, 9.961, 50.3723, 0.661, 9.211, 27.6223, 0.661, 9.211, 27.6223, 0.661, 9.961, 50.3723, 0.661, 18.211, 26.1223, 0.661, 11.461, 25.3723, 0.661, 11.461, 17.1223, 0.661, 26.961, 12.8723, 0.661, 25.461, 14.8723, 0.661, 27.711, 15.3723, 0.661, 27.461, 10.1223, 0.661, 22.211, 4.3723, 0.661, 16.961, 2.1223, 0.661, 14.461, 1.3723, 0.661, 14.461, 6.8723, 0.661, 19.961, 4.8723, 0.661, 16.961, 4.3723, 0.661, 16.961, 6.8723, 0.661, 19.961, 12.3723, 0.661, 25.461, 12.8723, 0.661, 25.461, 10.1223, 0.661, 22.211, 41.3723, 0.661, 64.961, 50.3723, 0.661, 64.961, 50.3723, 0.661, 55.461, 32.6223, 0.661, 64.961, 41.3723, 0.661, 64.961, 50.3723, 0.661, 55.461, 32.6223, 0.661, 64.961, 50.3723, 0.661, 55.461, 50.3723, 0.661, 46.211, 23.6223, 0.661, 64.961, 50.3723, 0.661, 36.711, 17.1223, 0.661, 27.461, 15.3723, 0.661, 29.461, 14.8723, 0.661, 64.961, 23.6223, 0.661, 64.961, 50.3723, 0.661, 46.211, 50.3723, 0.661, 36.711, 50.3723, 0.661, 27.461, 17.1223, 0.661, 27.461, 15.3723, 0.661, 29.461, 14.8723, 0.661, 29.461, 14.8723, 0.661, 64.961 )
+polygons = [ PoolIntArray( 2, 1, 0 ), PoolIntArray( 4, 3, 5 ), PoolIntArray( 5, 3, 7 ), PoolIntArray( 5, 7, 6 ), PoolIntArray( 10, 9, 8 ), PoolIntArray( 13, 12, 11 ), PoolIntArray( 16, 15, 14 ), PoolIntArray( 18, 17, 19 ), PoolIntArray( 19, 17, 20 ), PoolIntArray( 22, 21, 23 ), PoolIntArray( 23, 21, 24 ), PoolIntArray( 26, 25, 27 ), PoolIntArray( 27, 25, 30 ), PoolIntArray( 27, 30, 28 ), PoolIntArray( 28, 30, 29 ), PoolIntArray( 33, 32, 31 ), PoolIntArray( 36, 35, 34 ), PoolIntArray( 39, 38, 37 ), PoolIntArray( 42, 41, 40 ), PoolIntArray( 45, 44, 43 ), PoolIntArray( 48, 47, 46 ), PoolIntArray( 50, 49, 51 ), PoolIntArray( 51, 49, 52 ), PoolIntArray( 52, 49, 53 ), PoolIntArray( 56, 55, 54 ), PoolIntArray( 58, 57, 59 ), PoolIntArray( 59, 57, 60 ), PoolIntArray( 63, 62, 61 ), PoolIntArray( 65, 64, 66 ), PoolIntArray( 66, 64, 67 ), PoolIntArray( 70, 69, 71 ), PoolIntArray( 71, 69, 68 ), PoolIntArray( 73, 72, 74 ), PoolIntArray( 74, 72, 75 ), PoolIntArray( 76, 81, 77 ), PoolIntArray( 77, 81, 80 ), PoolIntArray( 77, 80, 78 ), PoolIntArray( 78, 80, 79 ), PoolIntArray( 84, 83, 82 ), PoolIntArray( 87, 86, 88 ), PoolIntArray( 88, 86, 85 ), PoolIntArray( 90, 89, 91 ), PoolIntArray( 96, 95, 92 ), PoolIntArray( 92, 95, 93 ), PoolIntArray( 93, 95, 94 ), PoolIntArray( 101, 100, 97 ), PoolIntArray( 97, 100, 99 ), PoolIntArray( 97, 99, 98 ), PoolIntArray( 107, 106, 102 ), PoolIntArray( 102, 106, 105 ), PoolIntArray( 102, 105, 103 ), PoolIntArray( 103, 105, 104 ), PoolIntArray( 111, 110, 108 ), PoolIntArray( 108, 110, 109 ), PoolIntArray( 116, 115, 117 ), PoolIntArray( 117, 115, 112 ), PoolIntArray( 112, 115, 114 ), PoolIntArray( 112, 114, 113 ), PoolIntArray( 123, 122, 118 ), PoolIntArray( 118, 122, 121 ), PoolIntArray( 118, 121, 119 ), PoolIntArray( 119, 121, 120 ), PoolIntArray( 125, 124, 126 ), PoolIntArray( 126, 124, 127 ), PoolIntArray( 130, 129, 128 ), PoolIntArray( 133, 132, 131 ), PoolIntArray( 136, 135, 134 ), PoolIntArray( 139, 138, 137 ), PoolIntArray( 142, 141, 143 ), PoolIntArray( 143, 141, 144 ), PoolIntArray( 144, 141, 145 ), PoolIntArray( 145, 141, 140 ), PoolIntArray( 147, 146, 148 ), PoolIntArray( 148, 146, 151 ), PoolIntArray( 148, 151, 150 ), PoolIntArray( 148, 150, 149 ), PoolIntArray( 154, 153, 152 ), PoolIntArray( 157, 156, 155 ), PoolIntArray( 159, 158, 160 ), PoolIntArray( 160, 158, 163 ), PoolIntArray( 160, 163, 161 ), PoolIntArray( 161, 163, 162 ), PoolIntArray( 165, 164, 166 ), PoolIntArray( 166, 164, 168 ), PoolIntArray( 166, 168, 167 ), PoolIntArray( 170, 169, 171 ), PoolIntArray( 171, 169, 173 ), PoolIntArray( 171, 173, 172 ), PoolIntArray( 176, 175, 174 ), PoolIntArray( 180, 179, 177 ), PoolIntArray( 177, 179, 178 ), PoolIntArray( 183, 182, 181 ), PoolIntArray( 187, 186, 184 ), PoolIntArray( 184, 186, 185 ), PoolIntArray( 191, 190, 188 ), PoolIntArray( 188, 190, 189 ), PoolIntArray( 195, 194, 192 ), PoolIntArray( 192, 194, 193 ), PoolIntArray( 200, 199, 196 ), PoolIntArray( 196, 199, 198 ), PoolIntArray( 196, 198, 197 ), PoolIntArray( 202, 201, 203 ), PoolIntArray( 203, 201, 204 ), PoolIntArray( 208, 207, 205 ), PoolIntArray( 205, 207, 206 ), PoolIntArray( 210, 209, 211 ), PoolIntArray( 211, 209, 212 ), PoolIntArray( 215, 214, 213 ), PoolIntArray( 218, 217, 216 ), PoolIntArray( 221, 220, 222 ), PoolIntArray( 222, 220, 219 ), PoolIntArray( 222, 219, 223 ), PoolIntArray( 224, 227, 225 ), PoolIntArray( 225, 227, 226 ), PoolIntArray( 229, 228, 230 ), PoolIntArray( 230, 228, 231 ), PoolIntArray( 233, 232, 234 ), PoolIntArray( 234, 232, 235 ), PoolIntArray( 235, 232, 236 ), PoolIntArray( 236, 232, 237 ), PoolIntArray( 239, 238, 240 ), PoolIntArray( 240, 238, 243 ), PoolIntArray( 240, 243, 242 ), PoolIntArray( 240, 242, 241 ), PoolIntArray( 244, 246, 245 ), PoolIntArray( 248, 247, 249 ), PoolIntArray( 249, 247, 250 ), PoolIntArray( 252, 251, 253 ), PoolIntArray( 253, 251, 254 ), PoolIntArray( 257, 256, 255 ), PoolIntArray( 259, 258, 260 ), PoolIntArray( 260, 258, 262 ), PoolIntArray( 260, 262, 261 ), PoolIntArray( 264, 263, 265 ), PoolIntArray( 265, 263, 266 ), PoolIntArray( 266, 263, 267 ), PoolIntArray( 269, 268, 270 ), PoolIntArray( 270, 268, 271 ), PoolIntArray( 271, 268, 272 ), PoolIntArray( 275, 274, 273 ), PoolIntArray( 278, 277, 276 ), PoolIntArray( 281, 280, 279 ), PoolIntArray( 284, 283, 282 ), PoolIntArray( 286, 285, 287 ), PoolIntArray( 287, 285, 288 ), PoolIntArray( 291, 290, 289 ), PoolIntArray( 294, 293, 292 ), PoolIntArray( 296, 295, 297 ), PoolIntArray( 297, 295, 298 ), PoolIntArray( 300, 299, 301 ), PoolIntArray( 301, 299, 302 ), PoolIntArray( 305, 304, 303 ), PoolIntArray( 307, 306, 308 ), PoolIntArray( 308, 306, 309 ), PoolIntArray( 309, 306, 311 ), PoolIntArray( 309, 311, 310 ), PoolIntArray( 314, 313, 312 ), PoolIntArray( 316, 315, 317 ), PoolIntArray( 317, 315, 318 ), PoolIntArray( 320, 319, 321 ), PoolIntArray( 321, 319, 322 ), PoolIntArray( 326, 325, 323 ), PoolIntArray( 323, 325, 324 ), PoolIntArray( 329, 328, 330 ), PoolIntArray( 330, 328, 327 ), PoolIntArray( 330, 327, 332 ), PoolIntArray( 330, 332, 331 ), PoolIntArray( 336, 335, 333 ), PoolIntArray( 333, 335, 334 ), PoolIntArray( 340, 339, 337 ), PoolIntArray( 337, 339, 338 ), PoolIntArray( 342, 341, 343 ), PoolIntArray( 343, 341, 344 ), PoolIntArray( 347, 346, 345 ), PoolIntArray( 351, 350, 348 ), PoolIntArray( 348, 350, 349 ), PoolIntArray( 353, 352, 354 ), PoolIntArray( 354, 352, 355 ), PoolIntArray( 355, 352, 357 ), PoolIntArray( 355, 357, 356 ), PoolIntArray( 359, 358, 360 ), PoolIntArray( 360, 358, 361 ), PoolIntArray( 361, 358, 362 ), PoolIntArray( 365, 364, 366 ), PoolIntArray( 366, 364, 363 ), PoolIntArray( 370, 369, 367 ), PoolIntArray( 367, 369, 368 ), PoolIntArray( 372, 371, 373 ), PoolIntArray( 373, 371, 375 ), PoolIntArray( 373, 375, 374 ), PoolIntArray( 377, 376, 378 ), PoolIntArray( 378, 376, 379 ), PoolIntArray( 382, 381, 380 ), PoolIntArray( 385, 384, 383 ), PoolIntArray( 388, 387, 386 ), PoolIntArray( 390, 389, 391 ), PoolIntArray( 391, 389, 392 ), PoolIntArray( 392, 389, 393 ), PoolIntArray( 395, 394, 396 ), PoolIntArray( 396, 394, 399 ), PoolIntArray( 396, 399, 398 ), PoolIntArray( 396, 398, 397 ), PoolIntArray( 401, 400, 402 ), PoolIntArray( 402, 400, 403 ), PoolIntArray( 406, 405, 404 ), PoolIntArray( 408, 407, 409 ), PoolIntArray( 409, 407, 410 ), PoolIntArray( 412, 411, 413 ), PoolIntArray( 413, 411, 414 ), PoolIntArray( 416, 415, 417 ), PoolIntArray( 417, 415, 420 ), PoolIntArray( 417, 420, 418 ), PoolIntArray( 418, 420, 419 ), PoolIntArray( 423, 422, 421 ), PoolIntArray( 426, 425, 424 ), PoolIntArray( 428, 427, 429 ), PoolIntArray( 429, 427, 430 ), PoolIntArray( 432, 431, 433 ), PoolIntArray( 433, 431, 436 ), PoolIntArray( 433, 436, 435 ), PoolIntArray( 433, 435, 434 ), PoolIntArray( 439, 438, 437 ), PoolIntArray( 442, 441, 440 ) ]
+
+[sub_resource type="CubeMesh" id=2]
+
+[sub_resource type="SpatialMaterial" id=3]
+albedo_color = Color( 0.572549, 0.482353, 0.482353, 1 )
+
+[sub_resource type="ConvexPolygonShape" id=13]
+points = PoolVector3Array( 1, 1, 1, 1, 1, -1, -1, 1, 1, 1, -1, 1, 1, -1, -1, -1, 1, -1, -1, -1, 1, -1, -1, -1 )
+
+[sub_resource type="CubeMesh" id=12]
+
+[sub_resource type="ConvexPolygonShape" id=18]
+points = PoolVector3Array( 1, 1, 1, 1, 1, -1, -1, 1, 1, 1, -1, 1, 1, -1, -1, -1, 1, -1, -1, -1, 1, -1, -1, -1 )
+
+[sub_resource type="ConvexPolygonShape" id=19]
+points = PoolVector3Array( 1, 1, 1, 1, 1, -1, -1, 1, 1, 1, -1, 1, 1, -1, -1, -1, 1, -1, -1, -1, 1, -1, -1, -1 )
+
+[sub_resource type="ConvexPolygonShape" id=20]
+points = PoolVector3Array( 1, 1, 1, 1, 1, -1, -1, 1, 1, 1, -1, 1, 1, -1, -1, -1, 1, -1, -1, -1, 1, -1, -1, -1 )
+
+[sub_resource type="ConvexPolygonShape" id=21]
+points = PoolVector3Array( 1, 1, 1, 1, 1, -1, -1, 1, 1, 1, -1, 1, 1, -1, -1, -1, 1, -1, -1, -1, 1, -1, -1, -1 )
+
+[sub_resource type="ConvexPolygonShape" id=22]
+points = PoolVector3Array( 1, 1, 1, 1, 1, -1, -1, 1, 1, 1, -1, 1, 1, -1, -1, -1, 1, -1, -1, -1, 1, -1, -1, -1 )
+
+[sub_resource type="ConvexPolygonShape" id=23]
+points = PoolVector3Array( 1, 1, 1, 1, 1, -1, -1, 1, 1, 1, -1, 1, 1, -1, -1, -1, 1, -1, -1, -1, 1, -1, -1, -1 )
+
+[sub_resource type="ConvexPolygonShape" id=24]
+points = PoolVector3Array( 1, 1, 1, 1, 1, -1, -1, 1, 1, 1, -1, 1, 1, -1, -1, -1, 1, -1, -1, -1, 1, -1, -1, -1 )
+
+[sub_resource type="ProceduralSky" id=15]
+
+[sub_resource type="Environment" id=14]
+background_mode = 2
+background_sky = SubResource( 15 )
+
+[sub_resource type="CubeMesh" id=16]
+
+[sub_resource type="ConvexPolygonShape" id=17]
+points = PoolVector3Array( 1, 1, 1, 1, 1, -1, -1, 1, 1, 1, -1, 1, 1, -1, -1, -1, 1, -1, -1, -1, 1, -1, -1, -1 )
+
+[node name="Spatial" type="Spatial"]
+
+[node name="RigidBody" type="RigidBody" parent="."]
+transform = Transform( 0.819832, 0, 0, 0, 0.819832, 0, 0, 0, 0.819832, 0, 3.93888, 5.11174 )
+
+[node name="MeshInstance" type="MeshInstance" parent="RigidBody"]
+mesh = SubResource( 9 )
+
+[node name="CollisionShape" type="CollisionShape" parent="RigidBody"]
+shape = SubResource( 10 )
+
+[node name="RigidBody2" type="RigidBody" parent="."]
+transform = Transform( 0.819832, 0, 0, 0, 0.819832, 0, 0, 0, 0.819832, 0, 3.93888, -3.68962 )
+
+[node name="MeshInstance" type="MeshInstance" parent="RigidBody2"]
+mesh = SubResource( 9 )
+
+[node name="CollisionShape" type="CollisionShape" parent="RigidBody2"]
+shape = SubResource( 10 )
+
+[node name="rifle" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6.78121, 1.67037, -0.29222 )
+
+[node name="Navigation" type="Navigation" parent="."]
+
+[node name="NavigationMeshInstance" type="NavigationMeshInstance" parent="Navigation"]
+navmesh = SubResource( 11 )
+
+[node name="land" type="StaticBody" parent="Navigation/NavigationMeshInstance"]
+transform = Transform( 10, 0, 0, 0, 0.339, 0, 0, 0, 10, 0, 0, 0 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Navigation/NavigationMeshInstance/land"]
+transform = Transform( 5.08777, 0, 0, 0, 1, 0, 0, 0, 6.5539, 0, 0, 0 )
+mesh = SubResource( 2 )
+material/0 = SubResource( 3 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Navigation/NavigationMeshInstance/land"]
+transform = Transform( 5.08777, 0, 0, 0, 1, 0, 0, 0, 6.5539, 0, 0, 0 )
+shape = SubResource( 13 )
+
+[node name="StaticBody" type="StaticBody" parent="Navigation/NavigationMeshInstance"]
+transform = Transform( 15.7231, 0, -0.693553, 0, 1, 0, 15.137, 0, 0.720406, 0, 1.11832, 12.9108 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Navigation/NavigationMeshInstance/StaticBody"]
+mesh = SubResource( 12 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Navigation/NavigationMeshInstance/StaticBody"]
+shape = SubResource( 18 )
+
+[node name="StaticBody2" type="StaticBody" parent="Navigation/NavigationMeshInstance"]
+transform = Transform( 15.7231, 0, -0.693553, 0, 1, 0, 15.137, 0, 0.720406, 10.7051, 1.11832, -5.09157 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Navigation/NavigationMeshInstance/StaticBody2"]
+mesh = SubResource( 12 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Navigation/NavigationMeshInstance/StaticBody2"]
+transform = Transform( 1, 0, 1.86265e-09, 0, 1, 0, 9.53674e-07, 0, 1, 0, 0, 0 )
+shape = SubResource( 19 )
+
+[node name="StaticBody4" type="StaticBody" parent="Navigation/NavigationMeshInstance"]
+transform = Transform( 5.06194, -0.00235556, 0.684708, 0.0350647, 0.889612, 0.00249222, -5.11318, 0.00182307, 0.491674, -4.13352, 1.11832, -0.399474 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Navigation/NavigationMeshInstance/StaticBody4"]
+transform = Transform( 1, 2.91038e-11, 0, -4.65661e-10, 1, -1.74623e-10, 1.19209e-07, 0, 1, 0, 0, 0 )
+mesh = SubResource( 12 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Navigation/NavigationMeshInstance/StaticBody4"]
+transform = Transform( 1, 2.91038e-11, 0, -4.65661e-10, 1, -1.74623e-10, 1.19209e-07, 0, 1, 0, 0, 0 )
+shape = SubResource( 20 )
+
+[node name="StaticBody6" type="StaticBody" parent="Navigation/NavigationMeshInstance"]
+transform = Transform( 5.06194, -0.00235556, 0.684708, 0.0350647, 0.889612, 0.00249222, -5.11318, 0.00182307, 0.491674, 5.75582, 1.11832, -0.399474 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Navigation/NavigationMeshInstance/StaticBody6"]
+transform = Transform( 1, 2.91038e-11, 0, -4.65661e-10, 1, -1.74623e-10, 1.19209e-07, 0, 1, 0, 0, 0 )
+mesh = SubResource( 12 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Navigation/NavigationMeshInstance/StaticBody6"]
+transform = Transform( 1, 2.91038e-11, 0, -4.65661e-10, 1, -1.74623e-10, 1.19209e-07, 0, 1, 0, 0, 0 )
+shape = SubResource( 21 )
+
+[node name="StaticBody8" type="StaticBody" parent="Navigation/NavigationMeshInstance"]
+transform = Transform( 5.06194, -0.00235556, 0.684708, 0.0350647, 0.889612, 0.00249222, -5.11318, 0.00182307, 0.491674, 15.2128, 1.11832, 8.80761 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Navigation/NavigationMeshInstance/StaticBody8"]
+transform = Transform( 1, 2.91038e-11, 0, -4.65661e-10, 1, -1.74623e-10, 1.19209e-07, 0, 1, 0, 0, 0 )
+mesh = SubResource( 12 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Navigation/NavigationMeshInstance/StaticBody8"]
+transform = Transform( 1, 2.91038e-11, 0, -4.65661e-10, 1, -1.74623e-10, 1.19209e-07, 0, 1, 0, 0, 0 )
+shape = SubResource( 22 )
+
+[node name="StaticBody7" type="StaticBody" parent="Navigation/NavigationMeshInstance"]
+transform = Transform( 5.06194, -0.00235556, 0.684708, 0.0350647, 0.889612, 0.00249222, -5.11318, 0.00182307, 0.491674, 6.24887, 1.11832, 8.30073 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Navigation/NavigationMeshInstance/StaticBody7"]
+transform = Transform( 1, 2.91038e-11, 0, -4.65661e-10, 1, -1.74623e-10, 1.19209e-07, 0, 1, 0, 0, 0 )
+mesh = SubResource( 12 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Navigation/NavigationMeshInstance/StaticBody7"]
+transform = Transform( 1, 2.91038e-11, 0, -4.65661e-10, 1, -1.74623e-10, 1.19209e-07, 0, 1, 0, 0, 0 )
+shape = SubResource( 23 )
+
+[node name="StaticBody5" type="StaticBody" parent="Navigation/NavigationMeshInstance"]
+transform = Transform( 5.06194, -0.00235556, 0.684708, 0.0350647, 0.889612, 0.00249222, -5.11318, 0.00182307, 0.491674, -7.67517, 1.11832, -13.8718 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Navigation/NavigationMeshInstance/StaticBody5"]
+transform = Transform( 1, 2.91038e-11, 0, -4.65661e-10, 1, -1.74623e-10, 1.19209e-07, 0, 1, 0, 0, 0 )
+mesh = SubResource( 12 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Navigation/NavigationMeshInstance/StaticBody5"]
+transform = Transform( 1, 2.91038e-11, 0, -4.65661e-10, 1, -1.74623e-10, 1.19209e-07, 0, 1, 0, 0, 0 )
+shape = SubResource( 24 )
+
+[node name="base_zombie2" parent="Navigation/NavigationMeshInstance" groups=["base_zombies"] instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.821749, 0.707268, -8.72372 )
+speed = 2.0
+
+[node name="KinematicBody" parent="Navigation" instance=ExtResource( 2 )]
+
+[node name="Position3D" type="Position3D" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.646388, -32.3776 )
+script = ExtResource( 3 )
+
+[node name="Timer" type="Timer" parent="Position3D"]
+wait_time = 10.004
+autostart = true
+
+[node name="Position3D2" type="Position3D" parent="."]
+
+[node name="Timer" type="Timer" parent="Position3D2"]
+
+[node name="Position3D3" type="Position3D" parent="."]
+
+[node name="Timer" type="Timer" parent="Position3D3"]
+
+[node name="Position3D4" type="Position3D" parent="."]
+
+[node name="Timer" type="Timer" parent="Position3D4"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource( 14 )
+
+[node name="StaticBody" type="StaticBody" parent="."]
+transform = Transform( 3.41899, -0.075421, 4.83965, 2.51043, 0.227815, 1.03069e-07, -3.77314, 0.0832333, 4.3854, 14.7164, 4.56369, 20.1296 )
+
+[node name="MeshInstance" type="MeshInstance" parent="StaticBody"]
+mesh = SubResource( 16 )
+
+[node name="CollisionShape" type="CollisionShape" parent="StaticBody"]
+shape = SubResource( 17 )
+
+[node name="StaticBody2" type="StaticBody" parent="."]
+transform = Transform( 3.42211, 0.0751379, 4.83965, -2.501, 0.228023, 0, -3.77657, -0.0829208, 4.3854, 22.231, 4.343, 11.698 )
+
+[node name="MeshInstance" type="MeshInstance" parent="StaticBody2"]
+mesh = SubResource( 16 )
+
+[node name="CollisionShape" type="CollisionShape" parent="StaticBody2"]
+shape = SubResource( 17 )
+
+[node name="DirectionalLight" type="DirectionalLight" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.0267352, 0.999643, 0, -0.999643, 0.0267352, 0, 24.7199, 0 )
+shadow_enabled = true
+
+[node name="OmniLight" type="OmniLight" parent="."]
+transform = Transform( 0.544449, 0, 0.838794, 0, 1, 0, -0.838794, 0, 0.544449, 17.2086, 3.25112, 21.1155 )
+shadow_enabled = true
+
+[node name="SpotLight" type="SpotLight" parent="."]
+transform = Transform( 0.777806, 0.628505, 2.74728e-08, 0, -4.37114e-08, 1, 0.628505, -0.777806, -3.3999e-08, 22.6488, 3.35601, 12.7781 )
+shadow_enabled = true
+
+[connection signal="timeout" from="Position3D/Timer" to="Position3D" method="_on_Timer_timeout"]
